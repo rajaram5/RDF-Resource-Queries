@@ -35,7 +35,7 @@ BiosemanticsConceptstore.getEntrezId <- function(proteinId) {
   # Substitute the ?InputID in the SPARQL query string.
   query <- gsub("\\?InputID", proteinIdValues, query) 
   result <- GetTable(BIOSEMANTIC.CONCEPT.ENDPOINT , query)
-  return(result$entrezGeneId)  
+  return(result)  
 }
 
 
