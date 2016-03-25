@@ -31,8 +31,9 @@ source("script/constants.R")
 BiosemanticsConceptstore.getEntrezId <- function(proteinId) {    
   queryFileName <- file.path(SPARQL.QUERIES.DIR, "get_entrez_gene_id_for_uniprot_id.sparql") 
   query <- ReadQueryFile(queryFileName)
-  # Substitute the ?ProteinID in the SPARQL query string.
-  query <- gsub("\\?ProteinID", proteinId, query) 
+  proteinIdValues <- paste0("('", proteinId, "')") 
+  # Substitute the ?InputID in the SPARQL query string.
+  query <- gsub("\\?InputID", proteinIdValues, query) 
   result <- GetTable(BIOSEMANTIC.CONCEPT.ENDPOINT , query)
   return(result$entrezGeneId)  
 }

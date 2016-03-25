@@ -5,7 +5,8 @@ PREFIX biosem_dt: <http://rdf.biosemantics.org/emco/datatypes/>
 
 SELECT DISTINCT ?geneUri (xsd:integer(?entrezGeneId) as ?entrezGeneId){
 
-   ?geneUri biosem_prop:altLabel_NO "?ProteinID";
+   VALUES (?ProteinID) {?InputID} 
+   ?geneUri biosem_prop:altLabel_NO ?ProteinID;
             skos:notation ?entrezGeneId.
 
 FILTER (datatype(?entrezGeneId) = biosem_dt:eg-notation-datatype)
