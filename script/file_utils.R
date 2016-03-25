@@ -22,7 +22,7 @@
 @since 25-03-2016
 
 <p>
-Rscript to perform file manipulations. 
+Functions to handle files 
 </p>
 
 "

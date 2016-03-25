@@ -28,8 +28,6 @@ This rscript contains constants.
 "
 # rscript root dir
 RSCRIPT.DIR <- getwd()
-# output dir
-OUTPUT.DIR <- file.path(RSCRIPT.DIR, "output")
 # sparql queries dir
 SPARQL.QUERIES.DIR <- file.path(RSCRIPT.DIR, "sparql_queries")
 # biosemantics concepts sparql endpoint url

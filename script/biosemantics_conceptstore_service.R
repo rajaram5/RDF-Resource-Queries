@@ -23,17 +23,23 @@
 
 "
 library(futile.logger)
-library(ggplot2)
 source("script/file_utils.R")
 source("script/execute_sparql_queries.R")
 source("script/constants.R")
 
-BiosemanticsConceptstore.getEntrezId <- function(proteinId) {    
+BiosemanticsConceptstore.getEntrezId <- function(uniProtID) {    
+  # GET entrez gene ID for the given uniProt ID.
+  #
+  # Args: 
+  #   proteinId: UniprotID
+  #
+  # Returns:  
+  #   DataFrame contains SPARQL query result
   queryFileName <- file.path(SPARQL.QUERIES.DIR, "get_entrez_gene_id_for_uniprot_id.sparql") 
   query <- ReadQueryFile(queryFileName)
-  proteinIdValues <- paste0("('", proteinId, "')") 
+  uniProtIDValues <- paste0("('", uniProtID, "')") 
   # Substitute the ?InputID in the SPARQL query string.
-  query <- gsub("\\?InputID", proteinIdValues, query) 
+  query <- gsub("\\?InputID", uniProtIDValues, query) 
   result <- GetTable(BIOSEMANTIC.CONCEPT.ENDPOINT , query)
   return(result)  
 }

@@ -28,4 +28,4 @@ source("script/biosemantics_conceptstore_service.R")
 
 uniProtId <- c("Q14409")
 entrezGeneId <- BiosemanticsConceptstore.getEntrezId(uniProtId) 
-print(paste("entrezGeneId == ", entrezGeneId))
+print(entrezGeneId)
