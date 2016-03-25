@@ -27,7 +27,5 @@ setwd("/home/rajaram/work/RDF-Resource-Queries/")
 source("script/biosemantics_conceptstore_service.R")
 
 uniProtId <- c("Q14409")
-
 entrezGeneId <- BiosemanticsConceptstore.getEntrezId(uniProtId) 
-
 print(paste("entrezGeneId == ", entrezGeneId))
